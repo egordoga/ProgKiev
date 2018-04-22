@@ -4,17 +4,24 @@ import java.lang.reflect.Field;
 
 public class DataObject {
 
-     String makeObj() throws IllegalAccessException {
-        String str = "";
-        Class<?> cls = DataSerial.class;
-        Field[] fields = cls.getDeclaredFields();
+    Class<?> cls = DataSerial.class;
+    String str = "";
 
-        for (Field field : fields) {
-            if (field.isAnnotationPresent(Save.class)) {
-                field.setAccessible(true);
-                str += (" " + field.get(new DataSerial()));
-            }
-        }
+    String makeObj() throws IllegalAccessException, InstantiationException {
+
+             Field[] fields = cls.getDeclaredFields();
+
+             for (Field field : fields) {
+                 if (field.isAnnotationPresent(Save.class)) {
+                     field.setAccessible(true);
+                     str += (" " + field.get(cls.newInstance()));
+                 }
+             }
+
+        if (!(cls.getSuperclass() == null) && !(cls.getSuperclass() == Object.class)) {
+            cls = cls.getSuperclass();
+            makeObj();
+         }
         return str;
     }
 }

@@ -6,7 +6,7 @@ public class MainSerial {
 
     private static File file = new File("e://2.txt");
 
-    public static void main(String[] args) throws IOException, IllegalAccessException, ClassNotFoundException {
+    public static void main(String[] args) throws IOException, IllegalAccessException, ClassNotFoundException, InstantiationException {
         DataObject dataObject = new DataObject();
 
         ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));

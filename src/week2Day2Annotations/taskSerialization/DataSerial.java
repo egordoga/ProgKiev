@@ -2,7 +2,7 @@ package week2Day2Annotations.taskSerialization;
 
 import java.io.Serializable;
 
-public class DataSerial implements Serializable {
+public class DataSerial extends DataSerialParent implements Serializable {
 
     private String one = "one";
     private String two = "two";
