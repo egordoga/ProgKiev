@@ -1,8 +1,6 @@
 package homeWork.week6DB.flatTask.utilsDB;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class UtilsDB {
 
@@ -18,5 +16,27 @@ public class UtilsDB {
             e.printStackTrace();
         }
         return conn;
+    }
+
+    public static void closeConnection(Connection conn, Statement st, ResultSet rs) {
+        try {
+            if (rs != null) {
+                rs.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            if (st != null) {
+                st.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

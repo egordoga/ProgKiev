@@ -2,27 +2,30 @@ package homeWork.week6DB.flatTask.entity;
 
 public class Flat {
 
-    private int id;
-    private int regionId;
+    private String region;
     private int square;
     private int roomQuantity;
     private int price;
-    private int addressId;
+    private String street;
+    private int houseNumber;
+    private int flatNumber;
 
-    public int getId() {
-        return id;
+    public Flat(String region, int square, int roomQuantity, int price, String street, int houseNumber, int flatNumber) {
+        this.region = region;
+        this.square = square;
+        this.roomQuantity = roomQuantity;
+        this.price = price;
+        this.street = street;
+        this.houseNumber = houseNumber;
+        this.flatNumber = flatNumber;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getRegion() {
+        return region;
     }
 
-    public int getRegionId() {
-        return regionId;
-    }
-
-    public void setRegionId(int regionId) {
-        this.regionId = regionId;
+    public void setRegion(String region) {
+        this.region = region;
     }
 
     public int getSquare() {
@@ -49,11 +52,40 @@ public class Flat {
         this.price = price;
     }
 
-    public int getAddressId() {
-        return addressId;
+    public String getStreet() {
+        return street;
     }
 
-    public void setAddressId(int adressId) {
-        this.addressId = adressId;
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public int getHouseNumber() {
+        return houseNumber;
+    }
+
+    public void setHouseNumber(int houseNumber) {
+        this.houseNumber = houseNumber;
+    }
+
+    public int getFlatNumber() {
+        return flatNumber;
+    }
+
+    public void setFlatNumber(int flatNumber) {
+        this.flatNumber = flatNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Flat{" +
+                "region=" + region +
+                ", square=" + square +
+                ", roomQuantity=" + roomQuantity +
+                ", price=" + price +
+                ", street='" + street + '\'' +
+                ", houseNumber=" + houseNumber +
+                ", flatNumber=" + flatNumber +
+                '}';
     }
 }

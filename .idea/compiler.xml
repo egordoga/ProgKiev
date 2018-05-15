@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ProgKievHW" target="7" />
+      <module name="ProgKievHW" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
