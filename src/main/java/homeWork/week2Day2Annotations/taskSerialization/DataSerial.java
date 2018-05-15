@@ -1,4 +1,4 @@
-package week2Day2Annotations.taskSerialization;
+package homeWork.week2Day2Annotations.taskSerialization;
 
 import java.io.Serializable;
 

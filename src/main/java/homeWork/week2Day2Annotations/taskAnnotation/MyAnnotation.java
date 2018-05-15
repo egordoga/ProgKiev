@@ -1,12 +1,14 @@
-package week2Day2Annotations.taskSerialization;
+package homeWork.week2Day2Annotations.taskAnnotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-
-@Target(value = ElementType.FIELD)
+@Target(value = ElementType.METHOD)
 @Retention(value = RetentionPolicy.RUNTIME)
-public @interface Save {
+public @interface MyAnnotation {
+
+    String name();
+    int age();
 }

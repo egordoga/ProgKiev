@@ -1,4 +1,4 @@
-package week2Day2Annotations.taskAnnotation;
+package homeWork.week2Day2Annotations.taskAnnotation;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

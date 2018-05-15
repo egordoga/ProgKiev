@@ -1,4 +1,4 @@
-package week2Day2Annotations.taskTextContainer;
+package homeWork.week2Day2Annotations.taskTextContainer;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
