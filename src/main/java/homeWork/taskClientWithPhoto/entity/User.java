@@ -3,7 +3,7 @@ package homeWork.taskClientWithPhoto.entity;
 import javax.persistence.*;
 import java.util.Objects;
 
-@Entity
+//@Entity
 public class User {
     private int id;
     private String name;

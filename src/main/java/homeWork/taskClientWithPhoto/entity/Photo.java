@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Arrays;
 import java.util.Objects;
 
-@Entity
+//@Entity
 public class Photo {
     private int id;
     private byte[] jpg;
