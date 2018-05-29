@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-      <property name="connection.url">jdbc:mysql://localhost:3306/restaurant</property>
+      <property name="connection.url">jdbc:mysql://localhost:3306/bank</property>
       <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
       <!-- <property name="connection.url">jdbc:mysql://localhost:3306/user_photo</property>
        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
@@ -16,5 +16,10 @@
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hbm2ddl.auto">update</property> -->
       <mapping class="homeWork.taskMenu.entity.Menu"/>
+      <mapping class="homeWork.bankTask.entity.Account"/>
+      <mapping class="homeWork.bankTask.entity.Client"/>
+      <mapping class="homeWork.bankTask.entity.Currency"/>
+      <mapping class="homeWork.bankTask.entity.Rates"/>
+      <mapping class="homeWork.bankTask.entity.Transaction"/>
   </session-factory>
 </hibernate-configuration>

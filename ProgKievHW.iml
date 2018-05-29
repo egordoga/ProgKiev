@@ -29,7 +29,7 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="hibernate.cfg.xml" value="9e82dcae-623f-40e6-9d3a-74721cba67e7" />
+          <unit-entry name="hibernate.cfg.xml" value="546ef289-40eb-4532-aa8b-6af46ff9b80b" />
         </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate.cfg.xml" />
@@ -40,9 +40,10 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="" />
         <datasource-mapping>
-          <factory-entry name="JPAMenu" />
+          <factory-entry name="JPABank1" value="99eed92b-6ea9-4439-96e5-1e97dc584cf8" />
+          <factory-entry name="JPAMenu" value="99eed92b-6ea9-4439-96e5-1e97dc584cf8" />
         </datasource-mapping>
-        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/META-INF/persistence.xml" />
+        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
       </configuration>
     </facet>
   </component>
