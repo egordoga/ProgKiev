@@ -19,4 +19,5 @@ public interface Service {
     Account findAccount(EntityManager em, Scanner sc);
     Double getRate(EntityManager em, Currency currency);
     void changeRate(EntityManager em, Scanner sc);
+    void addCurrency(EntityManager em, Scanner sc);
 }

@@ -27,17 +27,18 @@ public class MainBank1 {
                 System.out.println("3.Внести сумму");
                 System.out.println("4.Выдать сумму");
                 System.out.println("5.Произвести перевод средств");
+                System.out.println("6.Добавить валюту");
                 System.out.println("0.Выход");
                 String choice = sc.nextLine();
 
                 switch (choice) {
-                    case "1" :
+                    case "1":
                         service.addClient(em, sc);
                         break;
-                    case "2" :
+                    case "2":
                         service.createAccount(em, sc);
                         break;
-                    case "3" :
+                    case "3":
                         System.out.println("Какая сумма?");
                         Double sum = Double.parseDouble(sc.nextLine());
                         Account account = service.findAccount(em, sc);
@@ -45,7 +46,7 @@ public class MainBank1 {
                         service.addSum(account, sum, em);
                         service.writeTransaction(account1, account, sum, em);
                         break;
-                    case "4" :
+                    case "4":
                         System.out.println("Какая сумма?");
                         Double summ = Double.parseDouble(sc.nextLine());
                         Account from = service.findAccount(em, sc);
@@ -58,21 +59,26 @@ public class MainBank1 {
                             System.out.println("Не достаточно средств");
                         }
                         break;
-                    case "5" :
+                    case "5":
                         System.out.println("Какая сумма?");
                         Double summm = Double.parseDouble(sc.nextLine());
                         Account fromm = service.findAccount(em, sc);
                         Account too = service.findAccount(em, sc);
-                        if (fromm.getCurrency().getName().equals(too.getCurrency().getName())) {
-                            if (fromm.getSumm() > summm) {
-                                service.addSum(fromm, summm, em);
-                                service.writeTransaction(fromm, too, summm, em);
-                            } else {
-                                System.out.println("Не достаточно средств");
-                            } else if ()
+                        if (!(fromm.getCurrency().getName().equals(too.getCurrency().getName()))) {
+                            summm = summm * fromm.getCurrency().getRates().getValue();
+                        }
+                        if (fromm.getSumm() > summm) {
+                            service.addSum(fromm, summm, em);
+                            service.writeTransaction(fromm, too, summm, em);
+                        } else {
+                            System.out.println("Не достаточно средств");
                         }
                         break;
-                    case "0" :
+                    case "6":
+                        service.addCurrency(em, sc);
+                        service.changeRate(em, sc);
+                        break;
+                    case "0":
                         return;
                 }
             }
@@ -82,7 +88,6 @@ public class MainBank1 {
             em.close();
             mf.close();
         }
-
 
 
     }

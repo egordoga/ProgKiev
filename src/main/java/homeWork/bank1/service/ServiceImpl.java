@@ -16,6 +16,7 @@ public class ServiceImpl implements Service {
     private TransactionDao td = new TransactionDaoImpl();
     private AccountDao accountDao = new AccountDaoImpl();
     private RatesDao ratesDao = new RatesDaoImpl();
+    private CurrencyDao currency = new CurrencyDaoImpl();
 
     @Override
     public void addClient(EntityManager em, Scanner sc) {
@@ -55,5 +56,10 @@ public class ServiceImpl implements Service {
     @Override
     public void changeRate(EntityManager em, Scanner sc) {
         ratesDao.changeRate(em, sc);
+    }
+
+    @Override
+    public void addCurrency(EntityManager em, Scanner sc) {
+        currency.addCurrency(em, sc);
     }
 }
