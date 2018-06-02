@@ -28,6 +28,7 @@ public class MainBank1 {
                 System.out.println("4.Выдать сумму");
                 System.out.println("5.Произвести перевод средств");
                 System.out.println("6.Добавить валюту");
+                System.out.println("7.Поменять курс");
                 System.out.println("0.Выход");
                 String choice = sc.nextLine();
 
@@ -62,13 +63,16 @@ public class MainBank1 {
                     case "5":
                         System.out.println("Какая сумма?");
                         Double summm = Double.parseDouble(sc.nextLine());
+                        System.out.println("Счет отправителя");
                         Account fromm = service.findAccount(em, sc);
+                        System.out.println("Счет получателя");
                         Account too = service.findAccount(em, sc);
                         if (!(fromm.getCurrency().getName().equals(too.getCurrency().getName()))) {
                             summm = summm * fromm.getCurrency().getRates().getValue();
                         }
                         if (fromm.getSumm() > summm) {
-                            service.addSum(fromm, summm, em);
+                            service.addSum(too, summm, em);
+                            service.addSum(fromm, (summm * -1), em);
                             service.writeTransaction(fromm, too, summm, em);
                         } else {
                             System.out.println("Не достаточно средств");
@@ -76,6 +80,9 @@ public class MainBank1 {
                         break;
                     case "6":
                         service.addCurrency(em, sc);
+                        break;
+
+                    case "7":
                         service.changeRate(em, sc);
                         break;
                     case "0":

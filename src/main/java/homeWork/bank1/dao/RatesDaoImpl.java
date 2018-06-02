@@ -25,21 +25,21 @@ public class RatesDaoImpl implements RatesDao {
 
     @Override
     public void changeRate(EntityManager em, Scanner sc) {
-        System.out.println("Введите валюту");
+        System.out.println("Введите наименование валюты");
         String curr = sc.nextLine();
         System.out.println("Введите курс по отношению к USD");
         Double rate = Double.parseDouble(sc.nextLine());
-        Currency c;
+        Rates r;
         try {
-            Query query = em.createQuery("select c from Currency c where name = :curr", Currency.class);
+            Query query = em.createQuery("select r from Rates r where currency.name = :curr", Rates.class);
             query.setParameter("curr", curr);
-            c = (Currency) query.getSingleResult();
+            r = (Rates) query.getSingleResult();
             em.getTransaction().begin();
-            c.getRates().setValue(rate);
+            r.setValue(rate);
             em.getTransaction().commit();
         } catch (Exception e) {
-            em.getTransaction().rollback();
             System.out.println("Курс не поменян");
+            em.getTransaction().rollback();
         }
     }
 }

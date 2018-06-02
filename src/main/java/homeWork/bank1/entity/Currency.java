@@ -11,7 +11,7 @@ public class Currency {
 
     private String name;
 
-    @OneToOne(mappedBy = "currency")
+    @OneToOne(mappedBy = "currency", cascade = CascadeType.ALL, orphanRemoval = true)
     private Account account;
 
     @OneToOne(mappedBy = "currency")

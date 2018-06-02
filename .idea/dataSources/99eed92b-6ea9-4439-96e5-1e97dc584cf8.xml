@@ -948,132 +948,166 @@
     <table id="241" parent="5" name="hibernate_sequence">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="242" parent="5" name="transaction">
+    <table id="242" parent="5" name="rates">
       <Engine>InnoDB</Engine>
     </table>
-    <column id="243" parent="238" name="id">
+    <table id="243" parent="5" name="transaction">
+      <Engine>InnoDB</Engine>
+    </table>
+    <column id="244" parent="238" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="244" parent="238" name="summ">
+    <column id="245" parent="238" name="summ">
       <Position>2</Position>
       <DataType>double|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="245" parent="238" name="client_id">
+    <column id="246" parent="238" name="client_id">
       <Position>3</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="246" parent="238" name="currency_id">
+    <column id="247" parent="238" name="currency_id">
       <Position>4</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="247" parent="238" name="FKpei4spdwejr1mbu98yngbojd8">
+    <index id="248" parent="238" name="FKpei4spdwejr1mbu98yngbojd8">
       <ColNames>client_id</ColNames>
     </index>
-    <index id="248" parent="238" name="FKqb9hy0ydv5qjfrqgf2djhd8g6">
+    <index id="249" parent="238" name="FKqb9hy0ydv5qjfrqgf2djhd8g6">
       <ColNames>currency_id</ColNames>
     </index>
-    <key id="249" parent="238" name="PRIMARY">
+    <key id="250" parent="238" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="250" parent="238" name="FKpei4spdwejr1mbu98yngbojd8">
+    <foreign-key id="251" parent="238" name="FKpei4spdwejr1mbu98yngbojd8">
       <ColNames>client_id</ColNames>
       <RefSchemaName>bank1</RefSchemaName>
       <RefTableName>client</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="251" parent="238" name="FKqb9hy0ydv5qjfrqgf2djhd8g6">
+    <foreign-key id="252" parent="238" name="FKqb9hy0ydv5qjfrqgf2djhd8g6">
       <ColNames>currency_id</ColNames>
       <RefSchemaName>bank1</RefSchemaName>
       <RefTableName>currency</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="252" parent="239" name="id">
+    <column id="253" parent="239" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="253" parent="239" name="fio">
+    <column id="254" parent="239" name="fio">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="254" parent="239" name="PRIMARY">
+    <key id="255" parent="239" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="255" parent="240" name="id">
+    <column id="256" parent="240" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="240" name="name">
+    <column id="257" parent="240" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="257" parent="240" name="PRIMARY">
+    <key id="258" parent="240" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="258" parent="241" name="next_val">
+    <column id="259" parent="241" name="next_val">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="259" parent="242" name="id">
+    <column id="260" parent="242" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="260" parent="242" name="summ">
+    <column id="261" parent="242" name="value">
       <Position>2</Position>
       <DataType>double|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="261" parent="242" name="from_id">
+    <column id="262" parent="242" name="currency_id">
       <Position>3</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="262" parent="242" name="to_id">
-      <Position>4</Position>
-      <DataType>bigint(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="263" parent="242" name="FKj0eahbdfy7esda8bwcykpw85t">
-      <ColNames>from_id</ColNames>
+    <index id="263" parent="242" name="FKkyb5cvh3sv1gummxu8ngm6c90">
+      <ColNames>currency_id</ColNames>
     </index>
-    <index id="264" parent="242" name="FKlnpun42v13fp41wdipu9kaa0b">
-      <ColNames>to_id</ColNames>
-    </index>
-    <key id="265" parent="242" name="PRIMARY">
+    <key id="264" parent="242" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="266" parent="242" name="FKj0eahbdfy7esda8bwcykpw85t">
+    <foreign-key id="265" parent="242" name="FKkyb5cvh3sv1gummxu8ngm6c90">
+      <ColNames>currency_id</ColNames>
+      <RefSchemaName>bank1</RefSchemaName>
+      <RefTableName>currency</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="266" parent="243" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="267" parent="243" name="summ">
+      <Position>2</Position>
+      <DataType>double|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="268" parent="243" name="from_id">
+      <Position>3</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="269" parent="243" name="to_id">
+      <Position>4</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="270" parent="243" name="FKj0eahbdfy7esda8bwcykpw85t">
+      <ColNames>from_id</ColNames>
+    </index>
+    <index id="271" parent="243" name="FKlnpun42v13fp41wdipu9kaa0b">
+      <ColNames>to_id</ColNames>
+    </index>
+    <key id="272" parent="243" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="273" parent="243" name="FKj0eahbdfy7esda8bwcykpw85t">
       <ColNames>from_id</ColNames>
       <RefSchemaName>bank1</RefSchemaName>
       <RefTableName>account</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="267" parent="242" name="FKlnpun42v13fp41wdipu9kaa0b">
+    <foreign-key id="274" parent="243" name="FKlnpun42v13fp41wdipu9kaa0b">
       <ColNames>to_id</ColNames>
       <RefSchemaName>bank1</RefSchemaName>
       <RefTableName>account</RefTableName>

@@ -12,19 +12,29 @@ import java.util.Scanner;
 public class AccountDaoImpl implements AccountDao {
     @Override
     public void createAccount(EntityManager em, Scanner sc) {
-        Account account = null;
+        Account account;
         ClientDao cd = new ClientDaoImpl();
         Client client = cd.findClient(em, sc);
         if (client == null) return;
         System.out.println("В какщй валюте счет?");
-        System.out.println("1. USD");
-        System.out.println("2. EUR");
-        System.out.println("3. UAH");
+        System.out.println("USD");
+        System.out.println("EUR");
+        System.out.println("UAH");
         String currency = sc.nextLine();
 
-        switch (currency) {
+        Currency c;
+        try {
+            Query query = em.createQuery("select c from Currency c where name = :curr", Currency.class);
+            query.setParameter("curr", currency);
+            c = (Currency) query.getSingleResult();
+        } catch (NoResultException e) {
+            System.out.println("Такой валюты не найдено");
+            return;
+        }
+
+        account = new Account(client, c);
+        /*switch (currency) {
             case "1":
-                account = new Account(client, new Currency("USD"));
                 break;
             case "2":
                 account = new Account(client, new Currency("EUR"));
@@ -35,7 +45,7 @@ public class AccountDaoImpl implements AccountDao {
                 default:
                     System.out.println("Такой валюты нет");
                     return;
-        }
+        }*/
 
         try {
             em.getTransaction().begin();
@@ -52,7 +62,14 @@ public class AccountDaoImpl implements AccountDao {
     public void addSum(Account account, Double sum, EntityManager em) {
         em.getTransaction().begin();
         try {
-            account.setSumm(account.getSumm() + sum);
+            Double summa;
+            if (account.getSumm() == null) {
+                summa = sum;
+            } else {
+                summa = sum + account.getSumm();
+            }
+            System.out.println("HHHHHHHHHHHHHH" + sum + account.getSumm());
+            account.setSumm(summa);
             em.getTransaction().commit();
         } catch (Exception e) {
             em.getTransaction().rollback();
@@ -62,7 +79,7 @@ public class AccountDaoImpl implements AccountDao {
     @Override
     public Account findAccount(EntityManager em, Scanner sc) {
         System.out.println("Введите номер счета (id)");
-        Long id = Long.parseLong(sc.nextLine());
+        Integer id = Integer.parseInt(sc.nextLine());
         Account account = em.find(Account.class, id);
         if (account == null) {
             System.out.println("Такого счета нет");
