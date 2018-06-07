@@ -11,18 +11,18 @@ import java.util.Scanner;
 
 public class AccountDaoImpl implements AccountDao {
     @Override
-    public void createAccount(EntityManager em, Scanner sc) {
-        Account account;
+    public void createAccount(Client client, Currency currency, EntityManager em, Scanner sc) {
+       /* Account account;
         ClientDao cd = new ClientDaoImpl();
         Client client = cd.findClient(em, sc);
         if (client == null) return;
         System.out.println("В какщй валюте счет?");
-        System.out.println("USD");
-        System.out.println("EUR");
-        System.out.println("UAH");
+        System.out.println("1.USD");
+        System.out.println("2.EUR");
+        System.out.println("3.UAH");
         String currency = sc.nextLine();
+        int id = Integer.parseInt(currency);
 
-        Currency c;
         try {
             Query query = em.createQuery("select c from Currency c where name = :curr", Currency.class);
             query.setParameter("curr", currency);
@@ -30,9 +30,9 @@ public class AccountDaoImpl implements AccountDao {
         } catch (NoResultException e) {
             System.out.println("Такой валюты не найдено");
             return;
-        }
+        }*/
 
-        account = new Account(client, c);
+        Account account = new Account(client, currency);
         /*switch (currency) {
             case "1":
                 break;

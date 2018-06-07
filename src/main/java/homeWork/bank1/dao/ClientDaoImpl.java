@@ -25,7 +25,7 @@ public class ClientDaoImpl implements ClientDao {
 
     @Override
     public Client findClient(EntityManager em, Scanner sc) {
-        System.out.println("Введите фамилию");
+        System.out.println("Введите фамилию"); // считаем, что фамилия уникальна
         String fio = sc.nextLine();
         Client client = null;
         try {

@@ -23,4 +23,9 @@ public class CurrencyDaoImpl implements CurrencyDao {
             System.out.println("Валюта не добавлена");
         }
     }
+
+    @Override
+    public Currency findCurrency(Long idc, EntityManager em) {
+        return em.find(Currency.class, idc);
+    }
 }

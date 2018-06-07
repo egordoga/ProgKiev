@@ -35,7 +35,17 @@ public class ServiceImpl implements Service {
 
     @Override
     public void createAccount(EntityManager em, Scanner sc) {
-        accountDao.createAccount(em, sc);
+        System.out.println("В какщй валюте счет?");
+        System.out.println("1.USD");
+        System.out.println("2.EUR");
+        System.out.println("3.UAH");
+        String curr = sc.nextLine();
+        Long id = Long.parseLong(curr);
+
+        Currency curren = currency.findCurrency(id, em);
+
+        Client client = clientDao.findClient(em, sc);
+        accountDao.createAccount(client, curren, em, sc);
     }
 
     @Override
